@@ -1,0 +1,5 @@
+Le cross-site scripting (abrégé XSS) est faille web permettant d'injecter du code sur le côté client d'un site internet et peut donc être utilisé le site comme outil de propagation en forçant le navigateur d'une victime à exécuter le code injecter lors du chargement de la page.
+
+En inscrivant du code js comme "alert" dans le champ message de la session feedback on peut injecter du code js sur le site.
+
+Pour éviter cette faille il aurait fallu filtrer les inputs des utilisateurs avec des fonctions de SANITIZING pour retirer les caractères spéciaux pouvant être contenu dans la string envoyée par l'utilisateur

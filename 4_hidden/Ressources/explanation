@@ -1,0 +1,15 @@
+Le protocole d'exclusion des robots souvent nommé robots.txt, est une ressource de format texte qui peut être placée à la racine d'un site web, et qui contient une liste des ressources du site qui ne sont pas censées être indexées par les robots d'indexation des moteurs de recherche.
+
+Dans le robots.txt du site on peut trouver le chemin d'accès vers /.hidden.
+Lorsque l'on accède à ce /.hidden on tombe sur une page de liens vers des dossier contenant des fichiers "README".
+En utilisant wget pour télécharger tous ces dossiers avec :
+
+'wget -r -erobots=off -H --domains=192.168.56.101 192.168.56.101/.hidden/'
+	-r : recursive
+	-erobots=off : ignorer le fichier robots.txt
+	-H --domains: restreint la commande à un nom de dommaine precis
+
+On peut ensuite utiliser grep pour chercher un caractère hexadécimal du flag dans les fichiers README:
+grep -r "5" .
+
+Pour eviter une eviter cette faille il ne faut pas mettre d'informations sensible dans le robots.txt
