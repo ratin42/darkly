@@ -1,0 +1,9 @@
+En inspectant les cookies du site on peut voir le cookie "i_am_admin" avec pour valeure:
+- 68934a3e9455fa72420237eb05902327
+qui correspond après décryptage en MD5 à :
+- false
+on peut donc set le cookie à "true" en cryptant la valeur "true" qui donne: "b326b5062b2f0e69046810717534cb09" en MD5.
+ce qui nous permet de récupérer le flag.
+
+Une vulnérabilité dans le système de cookies pourrais permettre a un attaquant de se faire passer pour un autre utilisateur auprès d'un site web.
+Pour éviter cette faille il ne faut pas utiliser les cookies pour transmettre des informations sensibles.

@@ -1,0 +1,15 @@
+L'injection SQL, est une faille de sécurité d'une application interagissant avec une base de données. Elle permet d'injecter dans la requête SQL en cours un morceau de requête non prévu par le système et pouvant en compromettre la sécurité.
+
+Dans la section "search image" il y a un champ d'input, en essayant de chercher le terme :
+	- 1 AND 1=2 UNION SELECT table_schema, table_name FROM information_schema.tables
+on se rend vite compte qu'il y a une faille SQL exploitable.
+
+En listant les noms de tables on peut trouver la table list_images.
+On peut donc afficher le contenue de chaque item et lorsque l'on affiche le champ comment avec :
+	- 1 AND 1=2 UNION SELECT comment, title FROM list_images
+On peut trouver:
+	Title: Hack me ?
+	Url : If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46
+et donc récupérer le flag.
+
+On peut eviter cette faille en stockant les inputs de l'utilisateur dans une variable et en preparant a l'avance la requet SQL

@@ -1,0 +1,6 @@
+Les redirections invalides sont possibles lorsque un site web accepte des inputs non approuvées permettant des redirections vers des URL malicieuses.
+En utilisant cette faille un attaquant pourrait rediriger un utilisateur du site vers une URL de phishing permettant de voler ces identifiant.
+
+Tous en bas de la page home il y'a un lien vers une page facebook, si on regarde le href de la balise <a> on peut voir que le paramètre site est égale a "facebook", en changeant ça valeur on récupère un flag.
+
+Pour éviter cette faille il aurait fallu faire une redirection simple sans passer par une autre page du site en mettant directement l'adresse vers le site facebook.

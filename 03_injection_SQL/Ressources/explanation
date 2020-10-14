@@ -4,7 +4,7 @@ Dans la section MEMBER du site on peut voir que le champ de saisie nous permet d
 On peut donc utiliser une "UNION attack" pour récupérer les informations sur la structure de la base de données.
 
 On peut récupérer le nom des tables avec :
-- "1 AND 1=2 UNION SELECT table_schema, table_name, 1 FROM information_schema.tables"
+- "1 AND 1=2 UNION SELECT table_schema, table_name FROM information_schema.tables"
 
 On s'aperçoit alors que la seule table accessible par le schéma "Member_Sql_Injection" est la table "USERS".
 

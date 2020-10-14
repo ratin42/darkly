@@ -1,0 +1,11 @@
+Le cross-site scripting (abrégé XSS) est faille web permettant d'injecter du code sur le côté client d'un site internet et peut donc être utilisé le site comme outil de propagation en forçant le navigateur d'une victime à exécuter le code injecter lors du chargement de la page.
+
+En cliquant sur l'image nsa_prism on arrive sur une page avec en argument de l'url "page=media&src=nsa" et une balise <object> avec pour "data" un lien direct vers l'image nsa_prism.jpg.
+l'argument "src" définie donc le contenue de la balise object qui ne possède aucun attribut "type".
+on peut donc exploiter un faille XSS en y injectant le code <script>alert(1)</script> en l'encodant en base 64 ce qui donne :
+- PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg
+on écrivant en dur
+- http://192.168.56.101/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+on récupère le flag
+
+Pour éviter cette faille il aurait fallut définir le type de donné accepter par la balise <object> ou bien utiliser une simple balise <img>

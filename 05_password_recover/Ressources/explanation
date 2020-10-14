@@ -1,0 +1,5 @@
+Dans la section SignIn du site il y a un lien "I forgot my password" qui mène vers une page avec un bouton "Submit".
+Ce bouton permet d'envoyer un mail à "webmaster@borntosec.com", en changeant ce mail dans la balise input liée au bouton on récupère un flag.
+Cette faille pourrait permettre d'envoyer un mail en provenance du site à n'importe qui.
+
+Pour éviter cette faille il aurait fallu gérer l'envoie du mail dans le back-end.

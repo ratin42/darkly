@@ -1,0 +1,7 @@
+Dans le fichier robots.txt on trouve le chemin vers /whatever, qui contient un fichier htpasswd contenant le login/pswd:
+- root:8621ffdbc5698829397d97767ac13db3
+en décryptant le mot de passe en md5 on trouve dragon
+Le site possède une page cachée /admin permettant de rentrer un login et un mot de passe.
+
+Lorsque l'on rentre root et dragon on récupère le flag.
+Pour corriger cette faille il aurait fallu éviter de mettre des informations sensibles dans le robots.txt ou modifier le nom de la page de connexion "admin" qui est le nom par défaut des sites Wordpress
