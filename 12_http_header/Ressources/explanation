@@ -1,0 +1,13 @@
+Tous en bas du site il y a un lien "BornToSec" qui mène sur une nouvelle page.
+En inspectant le code source de cette page on peut trouver dans les commentaires html :
+	- You must cumming from : "https://www.nsa.gov/" to go to the next step.
+	- Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+On peut donc utiliser curl pour accéder à cette page en changeant les informations des En-têtes HTTP :
+	- curl -H "User-Agent: ft_bornToSec" --referer "https://www.nsa.gov/" http://192.168.56.101/?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+		User-agent: Définie l'application utilisée pour accéder au site.
+		--referer: L'adresse de la page web précédente à partir de laquelle un lien a été suivi pour demander la page courante.
+
+Ceci nous permet de récupérer le flag dans la réponse de curl.
+
+Pour éviter cette faille il ne faut pas ce fier aux informations du Header http, car elles peuvent être modifiés par un attaquant.

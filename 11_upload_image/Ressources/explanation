@@ -1,0 +1,14 @@
+Sur la page "Add Image" il y a un formulaire permettant d'uploader un fichier image sur le site.
+En essayant d'envoyer un fichier n'ayant pas d'extension correspondant à un fichier image le site nous repond par "Your image was not uploaded."
+
+Cependant, on peut forcer l'upload de fichier non autorisé comme un fichier "main.c" avec CURL :
+	- curl -F 'Upload=Upload' -F 'MAX_FILE_SIZE=100000' -F 'uploaded=@//Users/raphael/Desktop/main.c;type=image/jpeg' http://192.168.56.101/?page=upload
+
+On peut simuler l'envoie du formulaire de la page en spécifiant tous les champs du formulaire visible dans le code source.
+Et pour le champ "uploaded" qui désigne le fichier envoyé on peut spécifier le "Content-Type" utilisé par curl avec:
+	- "type=image/jpeg"
+Pour un fichier jpeg.
+On peut ensuite voir dans la réponse de curl le code source de la page avec :
+	- "<pre><center><h2 style="margin-top:50px;">The flag is : 46910d9ce35b385885a9f7e2b336249d622f29b267a1771fbacf52133beddba8</h2><br/><img src="images/win.png" alt="" width=200px height=200px></center> </pre>"
+
+Pour éviter cette faille il ne faut pas fier seulement au "Content-Type" qui peut facilement être modifié par l'utilisateur et donc toujours vérifier l'extension du fichier reçu avec par exemple une "whitelist"
